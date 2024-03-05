@@ -31,7 +31,7 @@ jobs:
 
     - name: Publish to Maven Central
       run: |
-        'echo "$SETTINGS_XML" > settings.xml'
+        echo "$SETTINGS_XML" > settings.xml
         mvn --no-transfer-progress --batch-mode -s settings.xml deploy
       shell: bash
       env:
