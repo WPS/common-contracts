@@ -26,13 +26,12 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 /**
  * <p>This class contains static methods to enforce base contracts ("not null" and "is true").</p>
  *
- * <p>There are methods to
+ * <p>There are methods to</p>
  * <ul>
  *     <li>require arguments to meet conditions (preconditions)</li>
  *     <li>check states (invariants)</li>
  *     <li>ensure results to meet conditions (postconditions)</li>
  * </ul>
- * </p>
  */
 public final class BaseContracts {
     private BaseContracts() {
@@ -40,7 +39,7 @@ public final class BaseContracts {
     }
 
     /**
-     * Requires the argument to be not null.
+     * <p>Requires the argument to be not null.</p>
      *
      * @param argument The argument to check
      * @param argumentName The name of the argument
@@ -58,7 +57,7 @@ public final class BaseContracts {
     }
 
     /**
-     * Requires an argument to meet the condition.
+     * <p>Requires an argument to meet the condition.</p>
      *
      * @param condition A condition to check
      * @param conditionDescription  A textual description of the condition to check
@@ -71,7 +70,7 @@ public final class BaseContracts {
     }
 
     /**
-     * Requires an argument to meet the condition.
+     * <p>Requires an argument to meet the condition.</p>
      *
      * @param condition A condition to check
      * @param conditionDescription  A supplier of a textual description of the condition to check
@@ -84,7 +83,7 @@ public final class BaseContracts {
     }
 
     /**
-     * Checks that a state object is not null.
+     * <p>Checks that a state object is not null.</p>
      *
      * @param state The state object to check
      * @param stateName The name of the state object
@@ -102,7 +101,7 @@ public final class BaseContracts {
     }
 
     /**
-     * Checks that a state object meets the condition.
+     * <p>Checks that a state object meets the condition.</p>
      *
      * @param condition A condition to check
      * @param conditionDescription  A textual description of the condition to check
@@ -115,7 +114,7 @@ public final class BaseContracts {
     }
 
     /**
-     *  Checks that a state object meets the condition.
+     * <p>Checks that a state object meets the condition.</p>
      *
      * @param condition A condition to check
      * @param conditionDescription  A supplier of a textual description of the condition to check
@@ -128,7 +127,7 @@ public final class BaseContracts {
     }
 
     /**
-     * Ensures the argument to be not null.
+     * <p>Ensures the argument to be not null.</p>
      *
      * @param result The result object to check
      * @param resultName The name of the result object
@@ -146,7 +145,7 @@ public final class BaseContracts {
     }
 
     /**
-     * Ensures that a result object meets the condition.
+     * <p>Ensures that a result object meets the condition.</p>
      *
      * @param condition A condition to check
      * @param conditionDescription  A textual description of the condition to check
@@ -159,7 +158,7 @@ public final class BaseContracts {
     }
 
     /**
-     *  Ensures that a result object meets the condition.
+     * <p>Ensures that a result object meets the condition.</p>
      *
      * @param condition A condition to check
      * @param conditionDescription  A supplier of a textual description of the condition to check
