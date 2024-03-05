@@ -24,14 +24,15 @@ import org.checkerframework.checker.nullness.qual.EnsuresNonNull;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
- * This class contains static methods to enforce base contracts ("not null" and "is true").<br/>
- * There are methods to
+ * <p>This class contains static methods to enforce base contracts ("not null" and "is true").</p>
+ *
+ * <p>There are methods to
  * <ul>
  *     <li>require arguments to meet conditions (preconditions)</li>
  *     <li>check states (invariants)</li>
  *     <li>ensure results to meet conditions (postconditions)</li>
  * </ul>
- *
+ * </p>
  */
 public final class BaseContracts {
     private BaseContracts() {
@@ -172,12 +173,13 @@ public final class BaseContracts {
 
 
     /**
-     * Ensures that a result object meets the condition of a predicate.<br />
-     * Convenience method for single line return: <pre>return ensure(result, r -> predicate, "message")</pre>
+     * <p>Ensures that a result object meets the condition of a predicate.</p>
+     * Convenience method for single line return: <pre>return ensure(result, r -&gt; predicate, "message")</pre>
      *
      * @param result A result to check
      * @param resultPredicate A predicate to check the result
      * @param conditionDescription  A textual description of the condition to check
+     * @param <T> Class of the result object to check
      * @return result if check succeeds
      * @throws IllegalStateException if predicate test is false
      */
@@ -189,13 +191,14 @@ public final class BaseContracts {
     }
 
     /**
-     * Ensures that a result object meets the condition of a predicate.<br/>
-     * Convenience method for single line return: <pre>return ensure(result, r -> predicate, () -> "message")</pre>
+     * <p>Ensures that a result object meets the condition of a predicate.</p>
+     * Convenience method for single line return: <pre>return ensure(result, r -&gt; predicate, () -&gt; "message")</pre>
      *
      * @param result A result to check
      * @param resultPredicate A predicate to check the result
      * @param conditionDescription  A textual description of the condition to check
-     *                              @return result if check succeeds
+     * @param <T> Class of the result object to check
+     * @return result if check succeeds
      * @throws IllegalStateException if predicate test is false
      */
     public static <T> T ensure(T result, @NonNull Predicate<T> resultPredicate, @NonNull Supplier<String> conditionDescription) {
