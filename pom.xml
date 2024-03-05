@@ -6,7 +6,7 @@
 
     <groupId>de.wps.common</groupId>
     <artifactId>common-contracts</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.2</version>
     <packaging>jar</packaging>
 
     <name>Common contracts by WPS GmbH</name>
@@ -147,6 +147,15 @@
             </plugin>
         </plugins>
     </build>
+
+    <developers>
+        <developer>
+            <name>Johannes Rost</name>
+            <email>Johannes.Rost@wps.de</email>
+            <organization>WPS - Workplace Solutions GmbH</organization>
+            <organizationUrl>https://wps.de</organizationUrl>
+        </developer>
+    </developers>
 
     <licenses>
         <license>
