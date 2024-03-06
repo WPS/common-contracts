@@ -1,7 +1,8 @@
-name: Maven Build
+name: Maven Publish
 
 on:
-  push
+  release:
+    types: [created]
 
 jobs:
   build:
