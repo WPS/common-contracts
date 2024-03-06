@@ -10,3 +10,6 @@ This project contains a set of contracts for _design by contract_. The contracts
 
 The [`BaseContracts`](./src/main/java/de/wps/common/contracts/BaseContracts.java) class contains contract methods to test for nullability and simple boolean conditions.
 
+## Collection contracts
+
+The [`CollectionContracts`](./src/main/java/de/wps/common/contracts/CollectionContracts.java) class contains contract methods to test collections for nullability and empty-ness.
