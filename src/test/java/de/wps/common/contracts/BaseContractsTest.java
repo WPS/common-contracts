@@ -154,6 +154,13 @@ class BaseContractsTest {
     }
 
     @Test
+    void ensureWithPredicate_predicateTargetNull() {
+        IllegalStateException throwable = assertThrows(IllegalStateException.class,
+                () -> ensure(null, o -> true, "testCondition"));
+        assertEquals("Result did not meet condition: testCondition, it was null instead", throwable.getMessage());
+    }
+
+    @Test
     void testEnsureWithPredicateAndSupplier_default() {
         Object result = new Object();
         Object ensuredResult = ensure(result, o -> true, () -> "testCondition");
@@ -165,5 +172,12 @@ class BaseContractsTest {
         IllegalStateException throwable = assertThrows(IllegalStateException.class,
                 () -> ensure(new Object(), o -> false, () -> "testCondition"));
         assertEquals("Result did not meet condition: testCondition", throwable.getMessage());
+    }
+
+    @Test
+    void ensureWithPredicateAndSupplier_predicateTargetNull() {
+        IllegalStateException throwable = assertThrows(IllegalStateException.class,
+                () -> ensure(null, o -> true, () -> "testCondition"));
+        assertEquals("Result did not meet condition: testCondition, it was null instead", throwable.getMessage());
     }
 }

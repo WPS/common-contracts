@@ -48,8 +48,7 @@ public final class BaseContracts {
      * @param <T> Class of the argument to check
      */
     @EnsuresNonNull("#1")
-    @NonNull
-    public static <T> T requireNotNull(T argument, @NonNull String argumentName) {
+    public static <T> @NonNull T requireNotNull(T argument, @NonNull String argumentName) {
         if(argument == null) {
             throw new IllegalArgumentException("Argument " + argumentName + " was null");
         }
@@ -92,8 +91,7 @@ public final class BaseContracts {
      * @param <T> Class of the state object to check
      */
     @EnsuresNonNull("#1")
-    @NonNull
-    public static <T> T checkNotNull(T state, @NonNull String stateName) {
+    public static <T> @NonNull T checkNotNull(T state, @NonNull String stateName) {
         if(state == null) {
             throw new IllegalStateException("State object " + stateName + " was null");
         }
@@ -136,8 +134,7 @@ public final class BaseContracts {
      * @param <T> Class of the state object to check
      */
     @EnsuresNonNull("#1")
-    @NonNull
-    public static <T> T ensureNotNull(T result, @NonNull String resultName) {
+    public static <T> @NonNull T ensureNotNull(T result, @NonNull String resultName) {
         if(result == null) {
             throw new IllegalStateException("Result " + resultName + " was null");
         }
@@ -170,7 +167,6 @@ public final class BaseContracts {
         }
     }
 
-
     /**
      * <p>Ensures that a result object meets the condition of a predicate.</p>
      * Convenience method for single line return: <pre>return ensure(result, r -&gt; predicate, "message")</pre>
@@ -183,6 +179,9 @@ public final class BaseContracts {
      * @throws IllegalStateException if predicate test is false
      */
     public static <T> T ensure(T result, @NonNull Predicate<T> resultPredicate, @NonNull String conditionDescription) {
+        if(result == null) {
+            throw new IllegalStateException("Result did not meet condition: " + conditionDescription + ", it was null instead");
+        }
         if(!resultPredicate.test(result)) {
             throw new IllegalStateException("Result did not meet condition: " + conditionDescription);
         }
@@ -201,6 +200,9 @@ public final class BaseContracts {
      * @throws IllegalStateException if predicate test is false
      */
     public static <T> T ensure(T result, @NonNull Predicate<T> resultPredicate, @NonNull Supplier<String> conditionDescription) {
+        if(result == null) {
+            throw new IllegalStateException("Result did not meet condition: " + conditionDescription.get() + ", it was null instead");
+        }
         if(!resultPredicate.test(result)) {
             throw new IllegalStateException("Result did not meet condition: " + conditionDescription.get());
         }
