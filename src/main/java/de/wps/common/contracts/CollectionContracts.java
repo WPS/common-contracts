@@ -1,6 +1,7 @@
 package de.wps.common.contracts;
 
 import java.util.Collection;
+import java.util.Map;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
@@ -22,10 +23,9 @@ public class CollectionContracts {
      * @return The checked collection
      * @throws IllegalArgumentException if argument is empty or is null
      * @param <T> Type of the collection
-     * @param <E> Element type of the collection
      */
     /* @EnsuresNonNull("#1") not working see https://github.com/typetools/checker-framework/issues/6478 */
-    public static <T extends Collection<E>, E> @NonNull T requireNotEmpty(T argument, @NonNull String argumentName) {
+    public static <T extends Collection<?>> @NonNull T requireNotEmpty(T argument, @NonNull String argumentName) {
         if(argument == null) {
             throw new IllegalArgumentException("Argument " + argumentName + " was null");
         }
@@ -43,10 +43,9 @@ public class CollectionContracts {
      * @return The checked collection
      * @throws IllegalStateException if state is empty or is null
      * @param <T> Type of the collection
-     * @param <E> Element type of the collection
      */
     /* @EnsuresNonNull("#1") not working see https://github.com/typetools/checker-framework/issues/6478 */
-    public static <T extends Collection<E>, E> @NonNull T checkNotEmpty(T state, @NonNull String stateName) {
+    public static <T extends Collection<?>> @NonNull T checkNotEmpty(T state, @NonNull String stateName) {
         if(state == null) {
             throw new IllegalStateException("State " + stateName + " was null");
         }
@@ -64,10 +63,69 @@ public class CollectionContracts {
      * @return The checked collection
      * @throws IllegalStateException if result is empty or is null
      * @param <T> Type of the collection
-     * @param <E> Element type of the collection
      */
     /* @EnsuresNonNull("#1") not working see https://github.com/typetools/checker-framework/issues/6478 */
-    public static <T extends Collection<E>, E> @NonNull T ensureNotEmpty(T result, @NonNull String resultName) {
+    public static <T extends Collection<?>> @NonNull T ensureNotEmpty(T result, @NonNull String resultName) {
+        if(result == null) {
+            throw new IllegalStateException("Result " + resultName + " was null");
+        }
+        if(result.isEmpty()) {
+            throw new IllegalStateException("Result " + resultName + " was empty");
+        }
+        return result;
+    }
+
+    /**
+     * <p>Requires the {@link Map} argument to be not empty and not null.</p>
+     *
+     * @param argument The map to check
+     * @param argumentName The name of the argument
+     * @return The checked map
+     * @throws IllegalArgumentException if argument is empty or is null
+     * @param <T> Type of the map
+     */
+    /* @EnsuresNonNull("#1") not working see https://github.com/typetools/checker-framework/issues/6478 */
+    public static <T extends Map<?, ?>> @NonNull T requireNotEmpty(T argument, @NonNull String argumentName) {
+        if(argument == null) {
+            throw new IllegalArgumentException("Argument " + argumentName + " was null");
+        }
+        if(argument.isEmpty()) {
+            throw new IllegalArgumentException("Argument " + argumentName + " was empty");
+        }
+        return argument;
+    }
+
+    /**
+     * <p>Requires the state {@link Map} to be not empty and not null.</p>
+     *
+     * @param state The map to check
+     * @param stateName The name of the state
+     * @return The checked map
+     * @throws IllegalStateException if state is empty or is null
+     * @param <T> Type of the map
+     */
+    /* @EnsuresNonNull("#1") not working see https://github.com/typetools/checker-framework/issues/6478 */
+    public static <T extends Map<?, ?>> @NonNull T checkNotEmpty(T state, @NonNull String stateName) {
+        if(state == null) {
+            throw new IllegalStateException("State " + stateName + " was null");
+        }
+        if(state.isEmpty()) {
+            throw new IllegalStateException("State " + stateName + " was empty");
+        }
+        return state;
+    }
+
+    /**
+     * <p>Requires the result {@link Map} to be not empty and not null.</p>
+     *
+     * @param result The map to check
+     * @param resultName The name of the result
+     * @return The checked map
+     * @throws IllegalStateException if result is empty or is null
+     * @param <T> Type of the map
+     */
+    /* @EnsuresNonNull("#1") not working see https://github.com/typetools/checker-framework/issues/6478 */
+    public static <T extends Map<?, ?>> @NonNull T ensureNotEmpty(T result, @NonNull String resultName) {
         if(result == null) {
             throw new IllegalStateException("Result " + resultName + " was null");
         }
