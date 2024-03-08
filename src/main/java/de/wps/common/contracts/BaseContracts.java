@@ -22,6 +22,7 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 import org.checkerframework.checker.nullness.qual.EnsuresNonNull;
 import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * <p>This class contains static methods to enforce base contracts ("not null" and "is true").</p>
@@ -48,7 +49,7 @@ public final class BaseContracts {
      * @param <T> Class of the argument to check
      */
     @EnsuresNonNull("#1")
-    public static <T> @NonNull T requireNotNull(T argument, @NonNull String argumentName) {
+    public static <T> @NonNull T requireNotNull(@Nullable T argument, @NonNull String argumentName) {
         if(argument == null) {
             throw new IllegalArgumentException("Argument " + argumentName + " was null");
         }
@@ -91,7 +92,7 @@ public final class BaseContracts {
      * @param <T> Class of the state object to check
      */
     @EnsuresNonNull("#1")
-    public static <T> @NonNull T checkNotNull(T state, @NonNull String stateName) {
+    public static <T> @NonNull T checkNotNull(@Nullable T state, @NonNull String stateName) {
         if(state == null) {
             throw new IllegalStateException("State object " + stateName + " was null");
         }
@@ -134,7 +135,7 @@ public final class BaseContracts {
      * @param <T> Class of the state object to check
      */
     @EnsuresNonNull("#1")
-    public static <T> @NonNull T ensureNotNull(T result, @NonNull String resultName) {
+    public static <T> @NonNull T ensureNotNull(@Nullable T result, @NonNull String resultName) {
         if(result == null) {
             throw new IllegalStateException("Result " + resultName + " was null");
         }
@@ -178,7 +179,7 @@ public final class BaseContracts {
      * @return result if check succeeds
      * @throws IllegalStateException if predicate test is false
      */
-    public static <T> T ensure(T result, @NonNull Predicate<T> resultPredicate, @NonNull String conditionDescription) {
+    public static <T> T ensure(@Nullable T result, @NonNull Predicate<T> resultPredicate, @NonNull String conditionDescription) {
         if(result == null) {
             throw new IllegalStateException("Result did not meet condition: " + conditionDescription + ", it was null instead");
         }
@@ -199,7 +200,7 @@ public final class BaseContracts {
      * @return result if check succeeds
      * @throws IllegalStateException if predicate test is false
      */
-    public static <T> T ensure(T result, @NonNull Predicate<T> resultPredicate, @NonNull Supplier<String> conditionDescription) {
+    public static <T> T ensure(@Nullable T result, @NonNull Predicate<T> resultPredicate, @NonNull Supplier<String> conditionDescription) {
         if(result == null) {
             throw new IllegalStateException("Result did not meet condition: " + conditionDescription.get() + ", it was null instead");
         }

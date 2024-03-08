@@ -20,7 +20,9 @@ package de.wps.common.contracts;
 
 import java.util.Collection;
 import java.util.Map;
+import org.checkerframework.checker.nullness.qual.EnsuresNonNull;
 import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * <p>This class contains static methods to enforce contracts on collections ("not empty" and "not null").</p>
@@ -42,8 +44,8 @@ public class CollectionContracts {
      * @throws IllegalArgumentException if argument is empty or is null
      * @param <T> Type of the collection
      */
-    /* @EnsuresNonNull("#1") not working see https://github.com/typetools/checker-framework/issues/6478 */
-    public static <T extends Collection<?>> @NonNull T requireNotEmpty(T argument, @NonNull String argumentName) {
+    @EnsuresNonNull("#1")
+    public static <T extends Collection<?>> @NonNull T requireNotEmpty(@Nullable T argument, @NonNull String argumentName) {
         if(argument == null) {
             throw new IllegalArgumentException("Argument " + argumentName + " was null");
         }
@@ -62,8 +64,8 @@ public class CollectionContracts {
      * @throws IllegalStateException if state is empty or is null
      * @param <T> Type of the collection
      */
-    /* @EnsuresNonNull("#1") not working see https://github.com/typetools/checker-framework/issues/6478 */
-    public static <T extends Collection<?>> @NonNull T checkNotEmpty(T state, @NonNull String stateName) {
+    @EnsuresNonNull("#1")
+    public static <T extends Collection<?>> @NonNull T checkNotEmpty(@Nullable T state, @NonNull String stateName) {
         if(state == null) {
             throw new IllegalStateException("State " + stateName + " was null");
         }
@@ -82,8 +84,8 @@ public class CollectionContracts {
      * @throws IllegalStateException if result is empty or is null
      * @param <T> Type of the collection
      */
-    /* @EnsuresNonNull("#1") not working see https://github.com/typetools/checker-framework/issues/6478 */
-    public static <T extends Collection<?>> @NonNull T ensureNotEmpty(T result, @NonNull String resultName) {
+    @EnsuresNonNull("#1")
+    public static <T extends Collection<?>> @NonNull T ensureNotEmpty(@Nullable T result, @NonNull String resultName) {
         if(result == null) {
             throw new IllegalStateException("Result " + resultName + " was null");
         }
@@ -102,8 +104,8 @@ public class CollectionContracts {
      * @throws IllegalArgumentException if argument is empty or is null
      * @param <T> Type of the map
      */
-    /* @EnsuresNonNull("#1") not working see https://github.com/typetools/checker-framework/issues/6478 */
-    public static <T extends Map<?, ?>> @NonNull T requireNotEmpty(T argument, @NonNull String argumentName) {
+    @EnsuresNonNull("#1")
+    public static <T extends Map<?, ?>> @NonNull T requireNotEmpty(@Nullable T argument, @NonNull String argumentName) {
         if(argument == null) {
             throw new IllegalArgumentException("Argument " + argumentName + " was null");
         }
@@ -122,8 +124,8 @@ public class CollectionContracts {
      * @throws IllegalStateException if state is empty or is null
      * @param <T> Type of the map
      */
-    /* @EnsuresNonNull("#1") not working see https://github.com/typetools/checker-framework/issues/6478 */
-    public static <T extends Map<?, ?>> @NonNull T checkNotEmpty(T state, @NonNull String stateName) {
+    @EnsuresNonNull("#1")
+    public static <T extends Map<?, ?>> @NonNull T checkNotEmpty(@Nullable T state, @NonNull String stateName) {
         if(state == null) {
             throw new IllegalStateException("State " + stateName + " was null");
         }
@@ -142,8 +144,8 @@ public class CollectionContracts {
      * @throws IllegalStateException if result is empty or is null
      * @param <T> Type of the map
      */
-    /* @EnsuresNonNull("#1") not working see https://github.com/typetools/checker-framework/issues/6478 */
-    public static <T extends Map<?, ?>> @NonNull T ensureNotEmpty(T result, @NonNull String resultName) {
+    @EnsuresNonNull("#1")
+    public static <T extends Map<?, ?>> @NonNull T ensureNotEmpty(@Nullable T result, @NonNull String resultName) {
         if(result == null) {
             throw new IllegalStateException("Result " + resultName + " was null");
         }
