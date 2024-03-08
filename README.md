@@ -17,10 +17,10 @@ Releases can be found in Maven central under the following coordinates:
 </dependency>
 ```
 
-## Base contracts
+## The contracts
 
-The [`BaseContracts`](./src/main/java/de/wps/common/contracts/BaseContracts.java) class contains contract methods to test for nullability and simple boolean conditions.
+The (static) methods implementing different contracts are grouped in the following classes:
 
-## Collection contracts
-
-The [`CollectionContracts`](./src/main/java/de/wps/common/contracts/CollectionContracts.java) class contains contract methods to test collections for nullability and empty-ness.
+- [`BaseContracts`](./src/main/java/de/wps/common/contracts/BaseContracts.java) to test for nullability and simple boolean conditions.
+- [`CollectionContracts`](./src/main/java/de/wps/common/contracts/CollectionContracts.java) to test collections for nullability and emptiness.
+- [`StringContracts`](./src/main/java/de/wps/common/contracts/StringContracts.java) to test strings for emptiness and blankness (and nullability).
