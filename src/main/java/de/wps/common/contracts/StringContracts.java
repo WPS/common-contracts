@@ -73,7 +73,7 @@ public class StringContracts {
     }
 
     /**
-     * <p>Requires the state {@link String} to be not empty and not null.</p>
+     * <p>Checks the state {@link String} to be not empty and not null.</p>
      *
      * @param state The string to check
      * @param stateName The name of the state
@@ -92,7 +92,7 @@ public class StringContracts {
     }
 
     /**
-     * <p>Requires the state {@link String} to be not blank and not null.</p>
+     * <p>Checks the state {@link String} to be not blank and not null.</p>
      *
      * @param state The string to check
      * @param stateName The name of the state
@@ -111,7 +111,7 @@ public class StringContracts {
     }
 
     /**
-     * <p>Requires the result {@link String} to be not empty and not null.</p>
+     * <p>Ensures the result {@link String} to be not empty and not null.</p>
      *
      * @param result The string to check
      * @param resultName The name of the result
@@ -130,7 +130,7 @@ public class StringContracts {
     }
 
     /**
-     * <p>Requires the result {@link String} to be not blank and not null.</p>
+     * <p>Ensures the result {@link String} to be not blank and not null.</p>
      *
      * @param result The string to check
      * @param resultName The name of the result

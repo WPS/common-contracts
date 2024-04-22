@@ -56,7 +56,7 @@ public class CollectionContracts {
     }
 
     /**
-     * <p>Requires the state {@link Collection} to be not empty and not null.</p>
+     * <p>Checks the state {@link Collection} to be not empty and not null.</p>
      *
      * @param state The collection to check
      * @param stateName The name of the state
@@ -76,7 +76,7 @@ public class CollectionContracts {
     }
 
     /**
-     * <p>Requires the result {@link Collection} to be not empty and not null.</p>
+     * <p>Ensures the result {@link Collection} to be not empty and not null.</p>
      *
      * @param result The collection to check
      * @param resultName The name of the result
@@ -116,7 +116,7 @@ public class CollectionContracts {
     }
 
     /**
-     * <p>Requires the state {@link Map} to be not empty and not null.</p>
+     * <p>Checks the state {@link Map} to be not empty and not null.</p>
      *
      * @param state The map to check
      * @param stateName The name of the state
@@ -136,7 +136,7 @@ public class CollectionContracts {
     }
 
     /**
-     * <p>Requires the result {@link Map} to be not empty and not null.</p>
+     * <p>Ensures the result {@link Map} to be not empty and not null.</p>
      *
      * @param result The map to check
      * @param resultName The name of the result
