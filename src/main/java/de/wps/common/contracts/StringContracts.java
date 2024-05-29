@@ -79,7 +79,7 @@ public class StringContracts {
      * @param maxLength Maximum length of argument
      * @param argumentName The name of the argument
      * @return The checked string
-     * @throws IllegalArgumentException if argument is null or arguments length > maxLength
+     * @throws IllegalArgumentException if argument is null or arguments length &gt; maxLength
      */
     @EnsuresNonNull("#1")
     public static @NonNull String requireMaxLength(@Nullable String argument, int maxLength, @NonNull String argumentName) {
@@ -137,7 +137,7 @@ public class StringContracts {
      * @param maxLength Maximum length of state
      * @param stateName The name of the state
      * @return The checked string
-     * @throws IllegalStateException if state is null or states length > maxLength
+     * @throws IllegalStateException if state is null or states length &gt; maxLength
      */
     @EnsuresNonNull("#1")
     public static @NonNull String checkMaxLength(@Nullable String state, int maxLength, @NonNull String stateName) {
@@ -196,7 +196,7 @@ public class StringContracts {
      * @param maxLength Maximum length of result
      * @param resultName The name of the result
      * @return The checked string
-     * @throws IllegalStateException if result is null or results length > maxLength
+     * @throws IllegalStateException if result is null or results length &gt; maxLength
      */
     @EnsuresNonNull("#1")
     public static @NonNull String ensureMaxLength(@Nullable String result, int maxLength, @NonNull String resultName) {
