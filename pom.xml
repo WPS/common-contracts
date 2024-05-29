@@ -6,7 +6,7 @@
 
     <groupId>de.wps.common</groupId>
     <artifactId>common-contracts</artifactId>
-    <version>0.5-SNAPSHOT</version>
+    <version>0.5</version>
     <packaging>jar</packaging>
 
     <name>Common contracts by WPS GmbH</name>
