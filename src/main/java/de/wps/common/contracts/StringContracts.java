@@ -73,6 +73,26 @@ public class StringContracts {
     }
 
     /**
+     * <p>Requires the {@link String} argument to be not null and its length less or equal maxLength.</p>
+     *
+     * @param argument The string to check
+     * @param maxLength Maximum length of argument
+     * @param argumentName The name of the argument
+     * @return The checked string
+     * @throws IllegalArgumentException if argument is null or arguments length > maxLength
+     */
+    @EnsuresNonNull("#1")
+    public static @NonNull String requireMaxLength(@Nullable String argument, int maxLength, @NonNull String argumentName) {
+        if(argument == null) {
+            throw new IllegalArgumentException("Argument " + argumentName + " was null");
+        }
+        if(argument.length() > maxLength) {
+            throw new IllegalArgumentException("Length of " + argumentName + " was > " + maxLength);
+        }
+        return argument;
+    }
+
+    /**
      * <p>Checks the state {@link String} to be not empty and not null.</p>
      *
      * @param state The string to check
@@ -111,6 +131,26 @@ public class StringContracts {
     }
 
     /**
+     * <p>Checks the state {@link String} to be not null and its length less or equal maxLength.</p>
+     *
+     * @param state The string to check
+     * @param maxLength Maximum length of state
+     * @param stateName The name of the state
+     * @return The checked string
+     * @throws IllegalStateException if state is null or states length > maxLength
+     */
+    @EnsuresNonNull("#1")
+    public static @NonNull String checkMaxLength(@Nullable String state, int maxLength, @NonNull String stateName) {
+        if(state == null) {
+            throw new IllegalStateException("State " + stateName + " was null");
+        }
+        if(state.length() > maxLength) {
+            throw new IllegalStateException("Length of " + stateName + " was > " + maxLength);
+        }
+        return state;
+    }
+
+    /**
      * <p>Ensures the result {@link String} to be not empty and not null.</p>
      *
      * @param result The string to check
@@ -144,6 +184,27 @@ public class StringContracts {
         }
         if(result.isBlank()) {
             throw new IllegalStateException("Result " + resultName + " was blank");
+        }
+        return result;
+    }
+
+
+    /**
+     * <p>Ensures the result {@link String} to be not null and its length less or equal maxLength.</p>
+     *
+     * @param result The string to check
+     * @param maxLength Maximum length of result
+     * @param resultName The name of the result
+     * @return The checked string
+     * @throws IllegalStateException if result is null or results length > maxLength
+     */
+    @EnsuresNonNull("#1")
+    public static @NonNull String ensureMaxLength(@Nullable String result, int maxLength, @NonNull String resultName) {
+        if(result == null) {
+            throw new IllegalStateException("Result " + resultName + " was null");
+        }
+        if(result.length() > maxLength) {
+            throw new IllegalStateException("Length of " + resultName + " was > " + maxLength);
         }
         return result;
     }
