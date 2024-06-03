@@ -18,11 +18,13 @@
  */
 package de.wps.common.contracts;
 
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import org.checkerframework.checker.nullness.qual.EnsuresNonNull;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.checkerframework.checker.optional.qual.EnsuresPresent;
 
 /**
  * <p>This class contains static methods to enforce base contracts ("not null" and "is true").</p>
@@ -54,6 +56,29 @@ public final class BaseContracts {
             throw new IllegalArgumentException("Argument " + argumentName + " was null");
         }
         return argument;
+    }
+
+    /**
+     * <p>Requires the argument to be present (and not to be null).</p>
+     *
+     * @param argument An {@link Optional} as argument to check
+     * @param argumentName The name of the argument
+     * @return The value of the checked argument Optional
+     * @throws IllegalArgumentException if argument is empty or null
+     * @param <T> Class of the argument to check
+     */
+    @EnsuresNonNull("#1")
+    @EnsuresPresent("#1")
+    public static <T> @NonNull T requirePresent(@SuppressWarnings("OptionalUsedAsFieldOrParameterType") Optional<T> argument, @NonNull String argumentName) {
+        //noinspection OptionalAssignedToNull
+        if(argument == null) {
+            throw new IllegalArgumentException("Argument " + argumentName + " was null");
+        }
+        if(argument.isPresent()) {
+            return argument.get();
+        } else {
+            throw new IllegalArgumentException("Argument " + argumentName + " was empty");
+        }
     }
 
     /**
@@ -100,6 +125,29 @@ public final class BaseContracts {
     }
 
     /**
+     * <p>Requires the state to be present (and not to be null).</p>
+     *
+     * @param state An {@link Optional} as state to check
+     * @param stateName The name of the state
+     * @return The value of the checked state Optional
+     * @throws IllegalStateException if state is empty or null
+     * @param <T> Class of the state to check
+     */
+    @EnsuresNonNull("#1")
+    @EnsuresPresent("#1")
+    public static <T> @NonNull T checkPresent(@SuppressWarnings("OptionalUsedAsFieldOrParameterType") Optional<T> state, @NonNull String stateName) {
+        //noinspection OptionalAssignedToNull
+        if(state == null) {
+            throw new IllegalStateException("State object " + stateName + " was null");
+        }
+        if(state.isPresent()) {
+            return state.get();
+        } else {
+            throw new IllegalStateException("State object " + stateName + " was empty");
+        }
+    }
+
+    /**
      * <p>Checks that a state object meets the condition.</p>
      *
      * @param condition A condition to check
@@ -140,6 +188,29 @@ public final class BaseContracts {
             throw new IllegalStateException("Result " + resultName + " was null");
         }
         return result;
+    }
+
+    /**
+     * <p>Requires the result to be present (and not to be null).</p>
+     *
+     * @param result An {@link Optional} as result to check
+     * @param resultName The name of the result
+     * @return The value of the checked result Optional
+     * @throws IllegalStateException if result is empty or null
+     * @param <T> Class of the result to check
+     */
+    @EnsuresNonNull("#1")
+    @EnsuresPresent("#1")
+    public static <T> @NonNull T ensurePresent(@SuppressWarnings("OptionalUsedAsFieldOrParameterType") Optional<T> result, @NonNull String resultName) {
+        //noinspection OptionalAssignedToNull
+        if(result == null) {
+            throw new IllegalStateException("Result " + resultName + " was null");
+        }
+        if(result.isPresent()) {
+            return result.get();
+        } else {
+            throw new IllegalStateException("Result " + resultName + " was empty");
+        }
     }
 
     /**
