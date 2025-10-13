@@ -65,6 +65,45 @@ class BaseContractsTest {
                         () -> require(false, () -> "testCondition"));
                 assertEquals("Argument did not meet condition: testCondition", throwable.getMessage());
             }
+
+            // Tests for Boolean overloads
+            @Test
+            void booleanTrueTest() {
+                require(Boolean.TRUE, "testCondition");
+            }
+
+            @Test
+            void booleanFalseTest() {
+                IllegalArgumentException throwable = assertThrows(IllegalArgumentException.class,
+                        () -> require(Boolean.FALSE, "testCondition"));
+                assertEquals("Argument did not meet condition: testCondition", throwable.getMessage());
+            }
+
+            @Test
+            void booleanNullTest() {
+                IllegalArgumentException throwable = assertThrows(IllegalArgumentException.class,
+                        () -> require((Boolean) null, "testCondition"));
+                assertEquals("Argument did not meet condition: testCondition", throwable.getMessage());
+            }
+
+            @Test
+            void booleanTrueWithSupplier() {
+                require(Boolean.TRUE, () -> "testCondition");
+            }
+
+            @Test
+            void booleanFalseWithSupplier() {
+                IllegalArgumentException throwable = assertThrows(IllegalArgumentException.class,
+                        () -> require(Boolean.FALSE, () -> "testCondition"));
+                assertEquals("Argument did not meet condition: testCondition", throwable.getMessage());
+            }
+
+            @Test
+            void booleanNullWithSupplier() {
+                IllegalArgumentException throwable = assertThrows(IllegalArgumentException.class,
+                        () -> require((Boolean) null, () -> "testCondition"));
+                assertEquals("Argument did not meet condition: testCondition", throwable.getMessage());
+            }
         }
 
         @Nested
@@ -92,6 +131,45 @@ class BaseContractsTest {
                         () -> check(false, () -> "testCondition"));
                 assertEquals("State did not meet condition: testCondition", throwable.getMessage());
             }
+
+            // Tests for Boolean overloads
+            @Test
+            void booleanTrueTest() {
+                check(Boolean.TRUE, "testCondition");
+            }
+
+            @Test
+            void booleanFalseTest() {
+                IllegalStateException throwable = assertThrows(IllegalStateException.class,
+                        () -> check(Boolean.FALSE, "testCondition"));
+                assertEquals("State did not meet condition: testCondition", throwable.getMessage());
+            }
+
+            @Test
+            void booleanNullTest() {
+                IllegalStateException throwable = assertThrows(IllegalStateException.class,
+                        () -> check((Boolean) null, "testCondition"));
+                assertEquals("State did not meet condition: testCondition", throwable.getMessage());
+            }
+
+            @Test
+            void booleanTrueWithSupplier() {
+                check(Boolean.TRUE, () -> "testCondition");
+            }
+
+            @Test
+            void booleanFalseWithSupplier() {
+                IllegalStateException throwable = assertThrows(IllegalStateException.class,
+                        () -> check(Boolean.FALSE, () -> "testCondition"));
+                assertEquals("State did not meet condition: testCondition", throwable.getMessage());
+            }
+
+            @Test
+            void booleanNullWithSupplier() {
+                IllegalStateException throwable = assertThrows(IllegalStateException.class,
+                        () -> check((Boolean) null, () -> "testCondition"));
+                assertEquals("State did not meet condition: testCondition", throwable.getMessage());
+            }
         }
 
         @Nested
@@ -117,6 +195,45 @@ class BaseContractsTest {
             void falseWithSupplier() {
                 IllegalStateException throwable = assertThrows(IllegalStateException.class,
                         () -> ensure(false, () -> "testCondition"));
+                assertEquals("Result did not meet condition: testCondition", throwable.getMessage());
+            }
+
+            // Tests for Boolean overloads
+            @Test
+            void booleanTrueTest() {
+                ensure(Boolean.TRUE, "testCondition");
+            }
+
+            @Test
+            void booleanFalseTest() {
+                IllegalStateException throwable = assertThrows(IllegalStateException.class,
+                        () -> ensure(Boolean.FALSE, "testCondition"));
+                assertEquals("Result did not meet condition: testCondition", throwable.getMessage());
+            }
+
+            @Test
+            void booleanNullTest() {
+                IllegalStateException throwable = assertThrows(IllegalStateException.class,
+                        () -> ensure((Boolean) null, "testCondition"));
+                assertEquals("Result did not meet condition: testCondition", throwable.getMessage());
+            }
+
+            @Test
+            void booleanTrueWithSupplier() {
+                ensure(Boolean.TRUE, () -> "testCondition");
+            }
+
+            @Test
+            void booleanFalseWithSupplier() {
+                IllegalStateException throwable = assertThrows(IllegalStateException.class,
+                        () -> ensure(Boolean.FALSE, () -> "testCondition"));
+                assertEquals("Result did not meet condition: testCondition", throwable.getMessage());
+            }
+
+            @Test
+            void booleanNullWithSupplier() {
+                IllegalStateException throwable = assertThrows(IllegalStateException.class,
+                        () -> ensure((Boolean) null, () -> "testCondition"));
                 assertEquals("Result did not meet condition: testCondition", throwable.getMessage());
             }
         }

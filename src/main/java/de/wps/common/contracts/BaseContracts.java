@@ -96,6 +96,20 @@ public final class BaseContracts {
 
     /**
      * <p>Requires an argument to meet the condition.</p>
+     * <p>Treats null Boolean as false to prevent NPE during unboxing.</p>
+     *
+     * @param condition A Boolean condition to check (null is treated as false)
+     * @param conditionDescription  A textual description of the condition to check
+     * @throws IllegalArgumentException if condition is false or null
+     */
+    public static void require(@Nullable Boolean condition, @NonNull String conditionDescription) {
+        if(condition == null || !condition) {
+            throw new IllegalArgumentException("Argument did not meet condition: " + conditionDescription);
+        }
+    }
+
+    /**
+     * <p>Requires an argument to meet the condition.</p>
      *
      * @param condition A condition to check
      * @param conditionDescription  A supplier of a textual description of the condition to check
@@ -103,6 +117,20 @@ public final class BaseContracts {
      */
     public static void require(boolean condition, @NonNull Supplier<String> conditionDescription) {
         if(!condition) {
+            throw new IllegalArgumentException("Argument did not meet condition: " + conditionDescription.get());
+        }
+    }
+
+    /**
+     * <p>Requires an argument to meet the condition.</p>
+     * <p>Treats null Boolean as false to prevent NPE during unboxing.</p>
+     *
+     * @param condition A Boolean condition to check (null is treated as false)
+     * @param conditionDescription  A supplier of a textual description of the condition to check
+     * @throws IllegalArgumentException if condition is false or null
+     */
+    public static void require(@Nullable Boolean condition, @NonNull Supplier<String> conditionDescription) {
+        if(condition == null || !condition) {
             throw new IllegalArgumentException("Argument did not meet condition: " + conditionDescription.get());
         }
     }
@@ -162,6 +190,20 @@ public final class BaseContracts {
 
     /**
      * <p>Checks that a state object meets the condition.</p>
+     * <p>Treats null Boolean as false to prevent NPE during unboxing.</p>
+     *
+     * @param condition A Boolean condition to check (null is treated as false)
+     * @param conditionDescription  A textual description of the condition to check
+     * @throws IllegalStateException if condition is false or null
+     */
+    public static void check(@Nullable Boolean condition, @NonNull String conditionDescription) {
+        if(condition == null || !condition) {
+            throw new IllegalStateException("State did not meet condition: " + conditionDescription);
+        }
+    }
+
+    /**
+     * <p>Checks that a state object meets the condition.</p>
      *
      * @param condition A condition to check
      * @param conditionDescription  A supplier of a textual description of the condition to check
@@ -169,6 +211,20 @@ public final class BaseContracts {
      */
     public static void check(boolean condition, @NonNull Supplier<String> conditionDescription) {
         if(!condition) {
+            throw new IllegalStateException("State did not meet condition: " + conditionDescription.get());
+        }
+    }
+
+    /**
+     * <p>Checks that a state object meets the condition.</p>
+     * <p>Treats null Boolean as false to prevent NPE during unboxing.</p>
+     *
+     * @param condition A Boolean condition to check (null is treated as false)
+     * @param conditionDescription  A supplier of a textual description of the condition to check
+     * @throws IllegalStateException if condition is false or null
+     */
+    public static void check(@Nullable Boolean condition, @NonNull Supplier<String> conditionDescription) {
+        if(condition == null || !condition) {
             throw new IllegalStateException("State did not meet condition: " + conditionDescription.get());
         }
     }
@@ -228,6 +284,20 @@ public final class BaseContracts {
 
     /**
      * <p>Ensures that a result object meets the condition.</p>
+     * <p>Treats null Boolean as false to prevent NPE during unboxing.</p>
+     *
+     * @param condition A Boolean condition to check (null is treated as false)
+     * @param conditionDescription  A textual description of the condition to check
+     * @throws IllegalStateException if condition is false or null
+     */
+    public static void ensure(@Nullable Boolean condition, @NonNull String conditionDescription) {
+        if(condition == null || !condition) {
+            throw new IllegalStateException("Result did not meet condition: " + conditionDescription);
+        }
+    }
+
+    /**
+     * <p>Ensures that a result object meets the condition.</p>
      *
      * @param condition A condition to check
      * @param conditionDescription  A supplier of a textual description of the condition to check
@@ -235,6 +305,20 @@ public final class BaseContracts {
      */
     public static void ensure(boolean condition, @NonNull Supplier<String> conditionDescription) {
         if(!condition) {
+            throw new IllegalStateException("Result did not meet condition: " + conditionDescription.get());
+        }
+    }
+
+    /**
+     * <p>Ensures that a result object meets the condition.</p>
+     * <p>Treats null Boolean as false to prevent NPE during unboxing.</p>
+     *
+     * @param condition A Boolean condition to check (null is treated as false)
+     * @param conditionDescription  A supplier of a textual description of the condition to check
+     * @throws IllegalStateException if condition is false or null
+     */
+    public static void ensure(@Nullable Boolean condition, @NonNull Supplier<String> conditionDescription) {
+        if(condition == null || !condition) {
             throw new IllegalStateException("Result did not meet condition: " + conditionDescription.get());
         }
     }
