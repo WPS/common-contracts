@@ -18,7 +18,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <checker.framework.version>3.53.1</checker.framework.version>
-        <junit.jupiter.version>6.0.1</junit.jupiter.version>
+        <junit.jupiter.version>6.0.3</junit.jupiter.version>
     </properties>
 
     <dependencies>
