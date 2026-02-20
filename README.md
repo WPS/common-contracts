@@ -22,7 +22,7 @@ Releases can be found in Maven central under the following coordinates:
 <dependency>
     <groupId>de.wps.common</groupId>
     <artifactId>common-contracts</artifactId>
-    <version>0.8</version>
+    <version>0.11</version>
 </dependency>
 ```
 
@@ -32,7 +32,7 @@ If you do not want to get the (only) transitive dependency `org.checkerframework
 <dependency>
     <groupId>de.wps.common</groupId>
     <artifactId>common-contracts</artifactId>
-    <version>0.8</version>
+    <version>0.11</version>
     <exclusions>
         <exclusion>
             <groupId>org.checkerframework</groupId>
