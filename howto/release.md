@@ -8,6 +8,7 @@ To release a new version to Maven Central, the following steps have to be comple
 4. Push everything (including the tag) to Github
 5. Use the [Github releases Page](https://github.com/WPS/common-contracts/releases) to draft (and publish) a new release named `vX.Y`
    based on the tag created in step 3. Make sure to use the `Generate changelog` functionality.
+6. Change the version in [pom.xml](../pom.xml) to the next snapshot version and push the change to Github
 
 After the release has been published in Github the [maven-publish action](../.github/workflows/maven-publish.yml) will
 run and the new release will be published to Maven Central
