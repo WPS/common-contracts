@@ -14,6 +14,7 @@ The (static) methods implementing different contracts are grouped in the followi
 - [`BaseContracts`](./src/main/java/de/wps/common/contracts/BaseContracts.java) to test for nullability and simple boolean conditions.
 - [`CollectionContracts`](./src/main/java/de/wps/common/contracts/CollectionContracts.java) to test collections for nullability and emptiness.
 - [`StringContracts`](./src/main/java/de/wps/common/contracts/StringContracts.java) to test strings for emptiness and blankness (and nullability).
+- [`NumberContracts`](./src/main/java/de/wps/common/contracts/NumberContracts.java) to test numbers against bounds ("less than", "less than or equal to", "greater than" and "greater than or equal to") for `int`, `long`, `float`, `double` and their wrapper types (and nullability).
 
 ## Maven coordinates
 
